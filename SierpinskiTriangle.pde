@@ -1,32 +1,30 @@
-int limit = 5;
-int x = 60;
-int y = 500;
+int h = 20;
+int limit = h;
 public void setup()
 {
-	size(600,600);
+	size(800,800);
 }
 public void draw()
 {
 	background(225);
-	//background(135,191,235);
-	sierpinski(x,y,500);
+	sierpinski(15,775,h);
 }
 public void mouseClicked()//optional
 {
-	limit = limit + 5;
-	if (limit > 100)
+	h = h + 50;
+	limit = limit - 20;
+	if (limit < 10)
 	{
-		limit = 10;
+		limit = h;
 	}
 }
 public void sierpinski(int x, int y, int len) 
 {
 	if(len <= limit)
 	{
-		noStroke();
 		frameRate(10);
 		fill(random(225),random(225),random(225),random(200));
-		triangle(x, y, x-len/2, y+len, x+len/2, y+len);
+		triangle(x+len/2,y-len,x,y,x+len,y);
 	}
 	else
 	{
